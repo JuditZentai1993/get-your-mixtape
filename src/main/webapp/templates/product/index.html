@@ -25,6 +25,8 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+
     <script>history.scrollRestoration = "manual"</script>
 
     <script type="text/javascript" src="/static/js/main.js" defer></script>
@@ -32,9 +34,25 @@
 </head>
 
 <body>
-<div class="jumbotron text-center">
-    <p>Get your playlist!</p>
+
+<div class="jumbotron">
+    <h1 class="display-3">Get your playlist!</h1>
+    <p class="lead">Don't know what to listen to, but you sure as hell
+        know that you want to listen to something? Just not finding the right beat?
+        Search for your mood, the weather, your activity, anything, and we'll give
+        you some amazing playlists to choose from!
+    </p>
+    <hr class="my-2">
+    <p>Give us a hint of what you're looking for (for example: study, running, rainy day,
+        rock and roll, feeling sexy, etc.)</p>
+    <p class="lead">
+        <div class="search-bar">
+            <input class="form-control form-control-lg" type="text" placeholder="Type some hints here ...">
+            <button type="button" class="btn btn-primary btn-lg" id="search">Gimme some noise!</button>
+        </div>
+    </p>
 </div>
+
 
 <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ"
         width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
