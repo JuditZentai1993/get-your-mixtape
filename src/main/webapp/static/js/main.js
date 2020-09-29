@@ -1,62 +1,17 @@
-function spotify() {
+function addButtonActionToSearch() {
+    document.getElementById("search-button").addEventListener('click',getUserInput)
+}
 
-//     var clientId = 'cf6ec28afc074e53ad0dfaef2bdf3d8c',
-//         clientSecret = '4132495a9701405b91d1a28711ee5de1';
-//
-// // Create the api object with the credentials
-//     var spotifyApi = new SpotifyWebApi({
-//         clientId: clientId,
-//         clientSecret: clientSecret
-//     });
-//
-// // Retrieve an access token.
-//     spotifyApi.clientCredentialsGrant().then(
-//         function(data) {
-//             console.log('The access token expires in ' + data.body['expires_in']);
-//             console.log('The access token is ' + data.body['access_token']);
-//
-//             // Save the access token so that it's used in future calls
-//             spotifyApi.setAccessToken(data.body['access_token']);
-//         },
-//         function(err) {
-//             console.log('Something went wrong when retrieving an access token', err);
-//         }
-//     );
+function getUserInput() {
+    let userInput = document.getElementById("search-field").value;
+    userInput = userInput.replace(" ", "%20");
+    alert(userInput);
+    authorizationForAccessingSpotifyAPI(userInput);
+}
 
-    // var request = require('request'); // "Request" library
-
-    var client_id = 'client_id'; // Your client id
-    var client_secret = 'client_secret'; // Your secret
-
-// your application requests authorization
-//     var authOptions = {
-//         url: 'https://accounts.spotify.com/api/token',
-//         headers: {
-//             'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
-//         },
-//         form: {
-//             grant_type: 'client_credentials'
-//         },
-//         json: true
-//     };
-
-    // request.post(authOptions, function(error, response, body) {
-    //     if (!error && response.statusCode === 200) {
-    //
-    //         // use the access token to access the Spotify Web API
-    //         var token = body.access_token;
-    //         var options = {
-    //             url: 'https://api.spotify.com/v1/users/jmperezperez',
-    //             headers: {
-    //                 'Authorization': 'Bearer ' + token
-    //             },
-    //             json: true
-    //         };
-    //         request.get(options, function(error, response, body) {
-    //             console.log(body);
-    //         });
-    //     }
-    // });
+function authorizationForAccessingSpotifyAPI(userInput) {
+    var client_id = 'cf6ec28afc074e53ad0dfaef2bdf3d8c'; // Your client id
+    var client_secret = '4132495a9701405b91d1a28711ee5de1'; // Your secret
 
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
@@ -69,18 +24,37 @@ function spotify() {
         ,
         json: true
     })
-        // .then(response => response.json())
-        .then(responss => responss.json())
-        .then(gggg => testvalami(gggg.access_token));
-
+        .then(response => response.json())
+        .then(result => showPlaylistMatchingKeyword(result.access_token, userInput));
 
 }
 
-function testvalami(vmi) {
+function showPlaylistMatchingKeyword(accessToken, keyword) {
+    fetch(`https://api.spotify.com/v1/search?q=${keyword}&type=playlist`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    })
+        .then(response => response.json())
+        .then(playlists => showPlayLists(playlists));
+}
+
+function showPlayLists(playlists) {
+    console.log(playlists);
+    let allPlaylists = playlists.playlists.items;
+    console.log(allPlaylists);
+    for(let playlist of allPlaylists) {
+        console.log(playlist);
+    }
+
+}
+
+function showPlaylist(keyword) {
     fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
         method: "GET",
         headers: {
-            Authorization: `Bearer ${vmi}`
+            Authorization: `Bearer ${keyword}`
         }
     })
         .then(response => response.json())
@@ -92,4 +66,4 @@ function testvalami(vmi) {
 
 }
 
-spotify();
+addButtonActionToSearch();
