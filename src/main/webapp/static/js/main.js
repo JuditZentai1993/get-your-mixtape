@@ -5,7 +5,6 @@ function addButtonActionToSearch() {
 function getUserInput() {
     let userInput = document.getElementById("search-field").value;
     userInput = userInput.replace(" ", "%20");
-    alert(userInput);
     authorizationForAccessingSpotifyAPI(userInput);
 }
 
@@ -44,26 +43,47 @@ function showPlayLists(playlists) {
     console.log(playlists);
     let allPlaylists = playlists.playlists.items;
     console.log(allPlaylists);
+    let playListTitles = "";
     for(let playlist of allPlaylists) {
-        console.log(playlist);
+        let playListTitleButton = `<li type="button" class="playlist-button btn btn-outline-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
+        playListTitles += playListTitleButton;
+    }
+    let playListTitlesBox = document.querySelector(".playlist-titles");
+    playListTitlesBox.innerHTML = playListTitles;
+    for (let item of playListTitlesBox.children) {
+        item.addEventListener("click", showMediaPlayer);
+    }
+    document.querySelector(".playlist-titles-box").classList.replace("hide-content", "show-hidden-content");
+    let mediaPlayer = document.querySelector(".playlist");
+    if (mediaPlayer.classList.contains("show-hidden-content")) {
+        mediaPlayer.classList.replace("show-hidden-content", "hide-content");
     }
 
 }
 
-function showPlaylist(keyword) {
-    fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
-        method: "GET",
-        headers: {
-            Authorization: `Bearer ${keyword}`
-        }
-    })
-        .then(response => response.json())
-        .then(({beats}) => {
-            beats.forEach((beat, index) => {
-                console.log(`Beat ${index} starts at ${beat.start}`);
-            })
-        });
+function showMediaPlayer(e) {
+    let playListContent = `<iframe src="https://open.spotify.com/embed/playlist/${e.currentTarget.id}"
+        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+    let mediaPlayer = document.querySelector(".playlist");
+    mediaPlayer.innerHTML = playListContent;
+    mediaPlayer.classList.replace("hide-content", "show-hidden-content");
 
 }
+
+// function showPlaylist2(keyword) {
+//     fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
+//         method: "GET",
+//         headers: {
+//             Authorization: `Bearer ${keyword}`
+//         }
+//     })
+//         .then(response => response.json())
+//         .then(({beats}) => {
+//             beats.forEach((beat, index) => {
+//                 console.log(`Beat ${index} starts at ${beat.start}`);
+//             })
+//         });
+
+// }
 
 addButtonActionToSearch();
