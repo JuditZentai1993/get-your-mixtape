@@ -1,5 +1,11 @@
 function addButtonActionToSearch() {
-    document.getElementById("search-button").addEventListener('click',getUserInput)
+    document.getElementById("search-button").addEventListener('click',getUserInput);
+    document.getElementById("search-field").addEventListener("keyup", function (event) {
+        if (event.keyCode===13) {
+            event.preventDefault();
+            document.getElementById("search-button").click();
+        }
+    })
 }
 
 function getUserInput() {
@@ -40,23 +46,19 @@ function showPlaylistMatchingKeyword(accessToken, keyword) {
 }
 
 function showPlayLists(playlists) {
+    document.querySelector(".playlist").innerHTML = "";
     console.log(playlists);
     let allPlaylists = playlists.playlists.items;
     console.log(allPlaylists);
     let playListTitles = "";
     for(let playlist of allPlaylists) {
-        let playListTitleButton = `<li type="button" class="playlist-button btn btn-outline-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
+        let playListTitleButton = `<li type="button" class="playlist-button btn btn-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
         playListTitles += playListTitleButton;
     }
     let playListTitlesBox = document.querySelector(".playlist-titles");
     playListTitlesBox.innerHTML = playListTitles;
     for (let item of playListTitlesBox.children) {
         item.addEventListener("click", showMediaPlayer);
-    }
-    document.querySelector(".playlist-titles-box").classList.replace("hide-content", "show-hidden-content");
-    let mediaPlayer = document.querySelector(".playlist");
-    if (mediaPlayer.classList.contains("show-hidden-content")) {
-        mediaPlayer.classList.replace("show-hidden-content", "hide-content");
     }
 
 }
@@ -66,24 +68,7 @@ function showMediaPlayer(e) {
         width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
     let mediaPlayer = document.querySelector(".playlist");
     mediaPlayer.innerHTML = playListContent;
-    mediaPlayer.classList.replace("hide-content", "show-hidden-content");
 
 }
-
-// function showPlaylist2(keyword) {
-//     fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
-//         method: "GET",
-//         headers: {
-//             Authorization: `Bearer ${keyword}`
-//         }
-//     })
-//         .then(response => response.json())
-//         .then(({beats}) => {
-//             beats.forEach((beat, index) => {
-//                 console.log(`Beat ${index} starts at ${beat.start}`);
-//             })
-//         });
-
-// }
 
 addButtonActionToSearch();

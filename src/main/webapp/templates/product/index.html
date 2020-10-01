@@ -27,16 +27,45 @@
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
 
-<!--    &lt;!&ndash; JQuery &ndash;&gt;-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--        $(document).ready(function(){-->
-<!--            $("#search-button").click(function(){-->
-<!--                $(".playlist-titles").fadeIn();-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
-<!--    &lt;!&ndash; End of JQuery &ndash;&gt;-->
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        // playlist titles fade in from header, media player disappears if present
+        $(document).ready(function(){
+            $("#search-button").click(function(){
+                $(".playlist").fadeOut('fast');
+                $(".playlist-titles-box")
+                    .hide()
+                    .css('opacity', 0)
+                    .css('background-color', '#e2e2e247')
+                    .slideToggle('slow')
+                    .animate(
+                        { opacity: 1 },
+                        { queue: false, duration: 'slow' }
+                    );
+            });
+        });
+
+        // Header fades in from top
+        $(function(){
+            $(".jumbotron")
+                .hide()
+                .css('opacity', 0)
+                .slideDown('slow')
+                .animate(
+                    { opacity: 1 },
+                    { queue: false, duration: 'slow' }
+                );
+        });
+
+        // media player appears when a playlist title is clicked
+        $(document).on("click", ".playlist-button", function () {
+            $(".playlist").hide().fadeIn('slow');
+        });
+
+    </script>
+    <!-- End of JQuery -->
 
     <script>history.scrollRestoration = "manual"</script>
 
@@ -47,6 +76,8 @@
 <body>
 
 <div class="site-content">
+
+<!--    Header    -->
 
 <div class="jumbotron">
     <h1 class="display-3">Get your playlist!</h1>
@@ -66,27 +97,24 @@
     </p>
 </div>
 
-<!--MODALTRY-->
+<!--    Header end     -->
+
+<!-- Playlist titles and media player -->
 
 
-<div class="search-results">
+<div class="search-results d-flex justify-content-around">
 
-    <div class="playlist-titles-box hide-content">
+    <div class="playlist-titles-box">
         <ul class="playlist-titles"></ul>
     </div>
 
-    <div class="playlist hide-content">
-        <p>playlist</p>
+    <div class="playlist">
     </div>
 
 </div>
 
 
-<!--MODALTRYEND-->
-
-
-<!--<iframe src="https://open.spotify.com/embed/playlist/5w6HLjflOIfu1pLJlNF588"-->
-<!--        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
+<!-- End of media player -->
 
 
 </div>
