@@ -40,6 +40,7 @@ function showPlaylistMatchingKeyword(accessToken, keyword) {
 }
 
 function showPlayLists(playlists) {
+    document.querySelector(".playlist").innerHTML = "";
     console.log(playlists);
     let allPlaylists = playlists.playlists.items;
     console.log(allPlaylists);
@@ -53,11 +54,10 @@ function showPlayLists(playlists) {
     for (let item of playListTitlesBox.children) {
         item.addEventListener("click", showMediaPlayer);
     }
-    document.querySelector(".playlist-titles-box").classList.replace("hide-content", "show-hidden-content");
-    let mediaPlayer = document.querySelector(".playlist");
-    if (mediaPlayer.classList.contains("show-hidden-content")) {
-        mediaPlayer.classList.replace("show-hidden-content", "hide-content");
-    }
+    // let mediaPlayer = document.querySelector(".playlist");
+    // if (mediaPlayer.classList.contains("show-hidden-content")) {
+    //     mediaPlayer.classList.replace("show-hidden-content", "hide-content");
+    // }
 
 }
 
@@ -66,7 +66,7 @@ function showMediaPlayer(e) {
         width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
     let mediaPlayer = document.querySelector(".playlist");
     mediaPlayer.innerHTML = playListContent;
-    mediaPlayer.classList.replace("hide-content", "show-hidden-content");
+    // mediaPlayer.classList.replace("hide-content", "show-hidden-content");
 
 }
 

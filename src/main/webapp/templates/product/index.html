@@ -30,10 +30,18 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(function(){  // $(document).ready shorthand
-            $('.jumbotron').hide().fadeIn('slow');
+        $(document).ready(function(){
+            $("#search-button").click(function(){
+                $(".playlist").fadeOut('slow');
+                $(".playlist-titles-box").hide().fadeIn('slow');
+            });
         });
-        
+        $(function(){  // $(document).ready shorthand
+            $(".jumbotron").hide().fadeIn('slow');
+        });
+        $(document).on("click", ".playlist-button", function (e) {
+            $(".playlist").hide().fadeIn('slow');
+        });
     </script>
     <!-- End of JQuery -->
 
@@ -70,11 +78,11 @@
 
 <div class="search-results">
 
-    <div class="playlist-titles-box hide-content">
+    <div class="playlist-titles-box">
         <ul class="playlist-titles"></ul>
     </div>
 
-    <div class="playlist hide-content">
+    <div class="playlist">
         <p>playlist</p>
     </div>
 
