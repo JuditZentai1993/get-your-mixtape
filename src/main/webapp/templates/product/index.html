@@ -30,11 +30,18 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        
+
         $(document).ready(function(){
             $("#search-button").click(function(){
-                $(".playlist").fadeOut('slow');
-                $(".playlist-titles-box").hide().fadeIn('slow');
+                $(".playlist").fadeOut('normal');
+                $(".playlist-titles-box")
+                    .hide()
+                    .css('opacity', 0)
+                    .slideToggle('slow')
+                    .animate(
+                        { opacity: 1 },
+                        { queue: false, duration: 'slow' }
+                    );
             });
         });
 
