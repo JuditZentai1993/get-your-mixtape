@@ -31,6 +31,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
+        // playlist titles fade in from header, media player disappears if present
         $(document).ready(function(){
             $("#search-button").click(function(){
                 $(".playlist").fadeOut('normal');
@@ -56,13 +57,12 @@
                     { queue: false, duration: 'slow' }
                 );
         });
-        // $(function(){  // $(document).ready shorthand
-        //     $(".jumbotron").hide().fadeIn('slow');
-        // });
 
-        $(document).on("click", ".playlist-button", function (e) {
+        // media player appears when a playlist title is clicked
+        $(document).on("click", ".playlist-button", function () {
             $(".playlist").hide().fadeIn('slow');
         });
+
     </script>
     <!-- End of JQuery -->
 

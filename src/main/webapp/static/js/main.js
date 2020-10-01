@@ -1,5 +1,11 @@
 function addButtonActionToSearch() {
-    document.getElementById("search-button").addEventListener('click',getUserInput)
+    document.getElementById("search-button").addEventListener('click',getUserInput);
+    document.getElementById("search-field").addEventListener("keyup", function (event) {
+        if (event.keyCode===13) {
+            event.preventDefault();
+            document.getElementById("search-button").click();
+        }
+    })
 }
 
 function getUserInput() {
