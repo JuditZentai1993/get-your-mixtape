@@ -27,16 +27,15 @@
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
 
-<!--    &lt;!&ndash; JQuery &ndash;&gt;-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--        $(document).ready(function(){-->
-<!--            $("#search-button").click(function(){-->
-<!--                $(".playlist-titles").fadeIn();-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
-<!--    &lt;!&ndash; End of JQuery &ndash;&gt;-->
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){  // $(document).ready shorthand
+            $('.jumbotron').hide().fadeIn('slow');
+        });
+        
+    </script>
+    <!-- End of JQuery -->
 
     <script>history.scrollRestoration = "manual"</script>
 
