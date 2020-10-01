@@ -30,15 +30,29 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        
         $(document).ready(function(){
             $("#search-button").click(function(){
                 $(".playlist").fadeOut('slow');
                 $(".playlist-titles-box").hide().fadeIn('slow');
             });
         });
-        $(function(){  // $(document).ready shorthand
-            $(".jumbotron").hide().fadeIn('slow');
+
+        // Header fades in from top
+        $(function(){
+            $(".jumbotron")
+                .hide()
+                .css('opacity', 0)
+                .slideDown('slow')
+                .animate(
+                    { opacity: 1 },
+                    { queue: false, duration: 'slow' }
+                );
         });
+        // $(function(){  // $(document).ready shorthand
+        //     $(".jumbotron").hide().fadeIn('slow');
+        // });
+
         $(document).on("click", ".playlist-button", function (e) {
             $(".playlist").hide().fadeIn('slow');
         });
