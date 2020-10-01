@@ -51,9 +51,24 @@ iframe {
 
 body {
     text-align: -webkit-center;
+    background-image: url(/static/img/Jon-Hopkins-cover.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: top;
+    background-color: black;
+    background-attachment: fixed;
 }
 
 ul {
     margin-block-start: 0em;
     padding-inline-start: 0px;
+}
+
+.jumbotron {
+    opacity: 1;
+    background-color: #e2e2e280;
+}
+
+h1 {
+    font-family: initial;
 }

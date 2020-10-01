@@ -52,7 +52,7 @@ function showPlayLists(playlists) {
     console.log(allPlaylists);
     let playListTitles = "";
     for(let playlist of allPlaylists) {
-        let playListTitleButton = `<li type="button" class="playlist-button btn btn-outline-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
+        let playListTitleButton = `<li type="button" class="playlist-button btn btn-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
         playListTitles += playListTitleButton;
     }
     let playListTitlesBox = document.querySelector(".playlist-titles");
