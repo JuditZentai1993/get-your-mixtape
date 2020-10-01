@@ -27,6 +27,17 @@
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
 
+<!--    &lt;!&ndash; JQuery &ndash;&gt;-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $("#search-button").click(function(){-->
+<!--                $(".playlist-titles").fadeIn();-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--    &lt;!&ndash; End of JQuery &ndash;&gt;-->
+
     <script>history.scrollRestoration = "manual"</script>
 
     <script type="text/javascript" src="/static/js/main.js" defer></script>
@@ -34,6 +45,8 @@
 </head>
 
 <body>
+
+<div class="site-content">
 
 <div class="jumbotron">
     <h1 class="display-3">Get your playlist!</h1>
@@ -48,17 +61,35 @@
     <p class="lead">
         <div class="search-bar">
             <input class="form-control form-control-lg" type="text" size="400px" id="search-field" placeholder="Type some hints here ...">
-            <button type="button" class="btn btn-primary btn-lg" id="search-button">Gimme some noise!</button>
+            <button type="button" class="btn btn-danger btn-lg" id="search-button">Gimme some noise!</button>
         </div>
     </p>
 </div>
 
+<!--MODALTRY-->
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ"
-        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-<div class="site-content">
+<div class="search-results">
 
+    <div class="playlist-titles-box hide-content">
+        <ul class="playlist-titles"></ul>
+    </div>
+
+    <div class="playlist hide-content">
+        <p>playlist</p>
+    </div>
+
+</div>
+
+
+<!--MODALTRYEND-->
+
+
+<!--<iframe src="https://open.spotify.com/embed/playlist/5w6HLjflOIfu1pLJlNF588"-->
+<!--        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
+
+
+</div>
 
 
 <div th:replace="footer.html :: copy"></div>

@@ -1,7 +1,49 @@
 #search-field {
-    width: 770px;
+    width: 60%;
+    /*width: 770px;*/
 }
 
 #search-button {
     margin-top: 10px;
+}
+
+.playlist-titles, .playlist {
+    list-style-type: none;
+    text-align: center;
+}
+
+.search-results {
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    margin:5px;
+}
+
+.show-hidden-content {
+    display: block;
+}
+
+.hide-content {
+    display: none;
+}
+
+iframe {
+    width: 600px;
+    height: 700px;
+    margin: 0 70px;
+
+}
+
+.playlist-titles-box {
+    margin: 0 70px;
+}
+
+.search-results {
+    margin: 0 180px;
+}
+
+body {
+    text-align: -webkit-center;
 }
