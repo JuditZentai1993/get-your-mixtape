@@ -60,10 +60,6 @@ function showPlayLists(playlists) {
     for (let item of playListTitlesBox.children) {
         item.addEventListener("click", showMediaPlayer);
     }
-    // let mediaPlayer = document.querySelector(".playlist");
-    // if (mediaPlayer.classList.contains("show-hidden-content")) {
-    //     mediaPlayer.classList.replace("show-hidden-content", "hide-content");
-    // }
 
 }
 
@@ -72,24 +68,7 @@ function showMediaPlayer(e) {
         width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
     let mediaPlayer = document.querySelector(".playlist");
     mediaPlayer.innerHTML = playListContent;
-    // mediaPlayer.classList.replace("hide-content", "show-hidden-content");
 
 }
-
-// function showPlaylist2(keyword) {
-//     fetch("https://api.spotify.com/v1/audio-analysis/6EJiVf7U0p1BBfs0qqeb1f", {
-//         method: "GET",
-//         headers: {
-//             Authorization: `Bearer ${keyword}`
-//         }
-//     })
-//         .then(response => response.json())
-//         .then(({beats}) => {
-//             beats.forEach((beat, index) => {
-//                 console.log(`Beat ${index} starts at ${beat.start}`);
-//             })
-//         });
-
-// }
 
 addButtonActionToSearch();

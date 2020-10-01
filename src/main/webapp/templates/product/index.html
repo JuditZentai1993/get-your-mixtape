@@ -34,7 +34,7 @@
         // playlist titles fade in from header, media player disappears if present
         $(document).ready(function(){
             $("#search-button").click(function(){
-                $(".playlist").fadeOut('normal');
+                $(".playlist").fadeOut('fast');
                 $(".playlist-titles-box")
                     .hide()
                     .css('opacity', 0)
@@ -76,6 +76,8 @@
 
 <div class="site-content">
 
+<!--    Header    -->
+
 <div class="jumbotron">
     <h1 class="display-3">Get your playlist!</h1>
     <p class="lead">Don't know what to listen to, but you sure as hell
@@ -94,27 +96,24 @@
     </p>
 </div>
 
-<!--MODALTRY-->
+<!--    Header end     -->
+
+<!-- Playlist titles and media player -->
 
 
-<div class="search-results">
+<div class="search-results d-flex justify-content-around">
 
     <div class="playlist-titles-box">
         <ul class="playlist-titles"></ul>
     </div>
 
     <div class="playlist">
-        <p>playlist</p>
     </div>
 
 </div>
 
 
-<!--MODALTRYEND-->
-
-
-<!--<iframe src="https://open.spotify.com/embed/playlist/5w6HLjflOIfu1pLJlNF588"-->
-<!--        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>-->
+<!-- End of media player -->
 
 
 </div>

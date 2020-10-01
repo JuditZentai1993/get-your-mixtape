@@ -1,6 +1,9 @@
 #search-field {
     width: 60%;
-    /*width: 770px;*/
+}
+
+.lead {
+    width: 88%;
 }
 
 #search-button {
@@ -12,38 +15,45 @@
     text-align: center;
 }
 
+.playlist-titles {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .search-results {
     display: flex;
     justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 0px 100px;
+}
+
+.playlist-titles-box {
+    flex: 1 1 1%;
+    padding: 0em 2em;
+}
+
+.playlist {
+    flex: 1 1 1%;
+    padding: 0em 2em;
 }
 
 li {
     margin:5px;
 }
 
-.show-hidden-content {
-    display: block;
-}
-
-.hide-content {
-    display: none;
-}
-
 iframe {
-    width: 600px;
-    height: 700px;
-    margin: 0 70px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    /*margin: 0 70px;*/
 
-}
-
-.playlist-titles-box {
-    margin: 0 70px;
-}
-
-.search-results {
-    margin: 0 180px;
 }
 
 body {
     text-align: -webkit-center;
+}
+
+ul {
+    margin-block-start: 0em;
+    padding-inline-start: 0px;
 }
