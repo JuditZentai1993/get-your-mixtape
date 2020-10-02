@@ -47,16 +47,18 @@ function showPlaylistMatchingKeyword(accessToken, keyword) {
 
 function showPlayLists(playlists) {
     document.querySelector(".playlist").innerHTML = "";
-    console.log(playlists);
     let allPlaylists = playlists.playlists.items;
-    console.log(allPlaylists);
     let playListTitles = "";
     for(let playlist of allPlaylists) {
         let playListTitleButton = `<li type="button" class="playlist-button btn btn-secondary btn-lg" id="${playlist.id}">${playlist.name}</li>`;
         playListTitles += playListTitleButton;
     }
     let playListTitlesBox = document.querySelector(".playlist-titles");
-    playListTitlesBox.innerHTML = playListTitles;
+    if (playListTitles.length > 0) {
+        playListTitlesBox.innerHTML = playListTitles;
+    } else {
+        playListTitlesBox.innerHTML = `<p><strong>Sorry, we weren't able to get a playlist related to your nasty word!&#128169;</strong></p>`;
+    }
     for (let item of playListTitlesBox.children) {
         item.addEventListener("click", showMediaPlayer);
     }
