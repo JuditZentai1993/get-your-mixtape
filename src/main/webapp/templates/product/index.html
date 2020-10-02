@@ -25,6 +25,48 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        // playlist titles fade in from header, media player disappears if present
+        $(document).ready(function(){
+            $("#search-button").click(function(){
+                $(".playlist").fadeOut('fast');
+                $(".playlist-titles-box")
+                    .hide()
+                    .css('opacity', 0)
+                    .css('background-color', '#e2e2e247')
+                    .slideToggle('slow')
+                    .animate(
+                        { opacity: 1 },
+                        { queue: false, duration: 'slow' }
+                    );
+            });
+        });
+
+        // Header fades in from top
+        $(function(){
+            $(".jumbotron")
+                .hide()
+                .css('opacity', 0)
+                .slideDown('slow')
+                .animate(
+                    { opacity: 1 },
+                    { queue: false, duration: 'slow' }
+                );
+        });
+
+        // media player appears when a playlist title is clicked
+        $(document).on("click", ".playlist-button", function () {
+            $(".playlist").hide().fadeIn('slow');
+        });
+
+    </script>
+    <!-- End of JQuery -->
+
     <script>history.scrollRestoration = "manual"</script>
 
     <script type="text/javascript" src="/static/js/main.js" defer></script>
@@ -32,15 +74,50 @@
 </head>
 
 <body>
-<div class="jumbotron text-center">
-    <p>Get your playlist!</p>
-</div>
-
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ"
-        width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 <div class="site-content">
 
+<!--    Header    -->
+
+<div class="jumbotron">
+    <h1 class="display-3">Get your mixtape!</h1>
+    <p class="lead">Don't know what to listen to, but you sure as hell
+        know that you want to listen to something? Just not finding the right beat?
+        Search for your mood, the weather, your activity, anything, and we'll give
+        you some amazing playlists to choose from!
+    </p>
+    <hr class="my-2">
+    <p>Give us a hint of what you're looking for (for example: study, running, rainy day,
+        rock and roll, feeling sexy, etc.)</p>
+    <p class="lead">
+        <div class="search-bar">
+            <input class="form-control form-control-lg" type="text" size="400px" id="search-field" placeholder="Type some hints here ...">
+            <button type="button" class="btn btn-danger btn-lg" id="search-button">Gimme some noise!</button>
+        </div>
+    </p>
+</div>
+
+<!--    Header end     -->
+
+<!-- Playlist titles and media player -->
+
+
+<div class="search-results d-flex justify-content-around">
+
+    <div class="playlist-titles-box">
+        <ul class="playlist-titles"></ul>
+    </div>
+
+    <div class="playlist">
+    </div>
+
+</div>
+
+
+<!-- End of media player -->
+
+
+</div>
 
 
 <div th:replace="footer.html :: copy"></div>
