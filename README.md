@@ -2,7 +2,7 @@
 
 Get your personalized playlist matching your mood/activity, powered by the Spotify API!
 You can visit the site here:
-https://get-your-mixtape.herokuapp.com/  *(recommended in Firefox)
+https://get-your-mixtape.herokuapp.com/  *(recommended in Firefox)*
 
 ## About the project
 
@@ -34,16 +34,16 @@ From this point, my instructions are strongly related to accessing the site from
 1. Clone the repository, and open the repository folder with IntelliJ
 2. Select Run/Edit Configurations...
 3. With the help of the + icon, choose Maven project
-4. On the top right side, for the Name, write **getyourplaylist [jetty:run]
+4. On the top right side, for the Name, write **getyourplaylist [jetty:run]**
 5. Make sure that the Working directory contains the path to the project you have just copied
-6. To Command line, put **jetty:run
+6. To Command line, put **jetty:run**
 7. Click on Apply, then click on Ok
 8. Build and run the project
 9. As this project uses Jetty for hosting purposes, you will see a lot of messages on the Run tab. At the end of these, you should see something similar to this:
-   *[INFO] Started ServerConnector@7a9ceddf{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+   *[INFO] Started ServerConnector@7a9ceddf{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}*
 10. Take the port from the above, and go to http://localhost/[port] in your selected browser
-11. *Enjoy!
+11. *Enjoy!*
 **Bonus: If this looks like too much of a fuss, just visit the website I deployed to Heroku: 
-                    https://get-your-mixtape.herokuapp.com/  *(recommended in Firefox)
+                    https://get-your-mixtape.herokuapp.com/**  *(recommended in Firefox)*
 
 
