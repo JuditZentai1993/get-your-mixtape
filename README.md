@@ -15,7 +15,7 @@ It also has a little back-end written in Java, with the usage of Jetty, the only
 
 ## Project Status
 
-I have a lot of future plans with this project. First of all, since the deployment of this project, I have started to learn to code in C#, I studied the whole .NET ecosystem, and I have participated in web projects using ASP.NET Core for backend develpoment. Thus I certainly want to change the Java backend to C# and to use ASP.NET Core. I have a different path for this project too: to leave the backend completely, make it entirely front-end based, and as I want to learn Angular and Typescript now, I aim to use this project as a learning material for those.
+I have a lot of future plans with this project. First of all, since the deployment of this project, I have started to learn coding in C#, I studied the whole .NET ecosystem, and I have participated in web projects using ASP.NET Core for backend develpoment. Thus I certainly want to change the Java backend to C# and to use ASP.NET Core. I have a different path for this project too: to leave the backend completely, make it entirely front-end based, and as I want to learn Angular and Typescript now, I aim to use this project as a learning material for those.
 
 ## Project Screenshots to make you excited
 
